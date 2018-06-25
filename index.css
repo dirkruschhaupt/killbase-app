@@ -1,0 +1,53 @@
+header {
+  margin: 0%;
+  text-align: left;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+body {
+  background-image: url("image/plate1.jpg");
+  background-color: darkgray;
+  background-size: cover;
+  background-repeat: no-repeat, repeat;
+}
+
+h1 {
+  color: black;
+  font-weight: bold;
+}
+
+img {
+  margin-left: 5%;
+  margin-top: 5%;
+  float: none;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.flex-container .box {
+  background-color: transparent;
+  width: 50%;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  background: transparent;
+  border: 2px black solid;
+}
