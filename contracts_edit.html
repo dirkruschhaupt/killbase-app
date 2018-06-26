@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>KillBase: Edit Contract Information</title>
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+
+    <img src="image/danger.jpg" width="100px" height="100px" alt="logo">
+      <div class="header">
+        <a href="#default" onclick="window.location.href='index.html'"class="logo">KillBase</a>
+        <div class="header-right">
+          <a href="#assassins" onclick="window.location.href='assassins.html'">Assassins</a>
+          <a href="#contracts" onclick="window.location.href='contracts.html'">Contracts</a>
+        </div>
+      </div>
+
+      <form id="add_contract">
+        <p>Target Name</p>
+        <input type="text" id="target_name" value="">
+        <p>Security Level</p>
+        <input type="text" id="security_level" value="">
+        <p>Target Location</p>
+        <input type="text" id="target_location" value="">
+        <p>Budget</p>
+        <input type="text" id="budget" value="">
+        <p>Target Image URL</p>
+        <input type="text" id="target_image_url" value="">
+        <p>Client</p>
+        <select type="text" id="client" >
+          <option value=""></option>
+          <option value=""></option>
+        </select>
+        <button class="button" id="submit" type="submit">Edit Contract</button>
+      </form>
+
+    <link rel="stylesheet" href="assassins.css">
+  </body>
+</html>

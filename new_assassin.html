@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>KillBase: Add Assassins</title>
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+
+    <img src="image/danger.jpg" width="100px" height="100px" alt="logo">
+    <div class="header">
+      <a href="#default" onclick="window.location.href='index.html'"class="logo">KillBase</a>
+      <div class="header-right">
+        <a href="#assassins" onclick="window.location.href='assassins.html'">Assassins</a>
+        <a href="#contracts" onclick="window.location.href='contracts.html'">Contracts</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column left">
+        <p>Name</p>
+        <input type="text" id="assassin_name" size="40" value="">
+        <p>Code Name</p>
+        <input type="text" id="codenames" size="40" value="">
+        <p>Profile Image URL</p>
+        <input type="text" id="url" size="40" value="">
+        <p>Weapon of Choice</p>
+        <input type="text" id="weapon" size="40" value="">
+        <p>Contact Info</p>
+        <input type="email" id="contact_info" size="40" value="">
+        <br><br>
+        <button class="button" id="submit" type="submit">Add Assissan</button>
+      </div>
+      <div class="column right">
+        <p>Age</p>
+        <input type="text" id="age" value="">
+        <p>Price</p>
+        <input type="text" id="price" value="">
+        <p>Rating</p>
+        <input type="text" id="rating" value="">
+        <p>Kills</p>
+        <input type="text" id="kills" value="">
+      </div>
+    </div>
+
+    <link rel="stylesheet" href="assassins.css">
+  </body>
+</html>
