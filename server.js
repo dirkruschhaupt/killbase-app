@@ -14,11 +14,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(assassinsRouter);
-app.use(targetsRouter);
-app.use(contractsRouter);
-app.use(clientsRouter);
-app.use(codenamesRouter);
-app.use(assassins_contractsRouter);
+//app.use(targetsRouter);
+//app.use(contractsRouter);
+//app.use(clientsRouter);
+//app.use(codenamesRouter);
+//app.use(assassins_contractsRouter);
 
 app.listen(8000, function () {
   console.log('Listening on port 8000');
