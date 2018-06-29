@@ -8,8 +8,8 @@ exports.up = function(knex, Promise) {
     table.foreign('client_id').references('clients.id').onDelete('CASCADE');
     table.integer('budget');
     table.boolean('completed').notNullable().defaultTo(false);
-    table.integer('assassin_id').notNullable();
-    table.foreign('assassin_id').references('assassins.id').onDelete('CASCADE');
+    table.integer('assassins_id');
+    table.foreign('assassins_id').references('assassins.id').onDelete('CASCADE');
   })
 };
 
