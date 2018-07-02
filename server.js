@@ -5,7 +5,7 @@ let app = express();
 let path = require('path');
 let bodyParser = require('body-parser');
 let port = process.env.PORT || 8000;
-let morgan = require('morgan');
+//let morgan = require('morgan');
 
 let assassinsRouter = require('./router/assassinsRouter');
 let targetsRouter = require('./router/targetsRouter');
@@ -18,7 +18,7 @@ app.disable('x-powered-by');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(morgan('short'));
+//app.use(morgan('short'));
 
 app.use(assassinsRouter);
 app.use(targetsRouter);
