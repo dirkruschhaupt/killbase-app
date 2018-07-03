@@ -38,7 +38,7 @@
       </div>
       <div class="column c">
         <h2>codename</h2>
-        
+
         <h2>kills</h2>
 
         <h2>age</h2>
@@ -52,6 +52,9 @@
       </div>
     </div>
 
+    <% for (let i = 0; i < data.length; i++) { %>
+      <p><%= data[i].assassins_name%> <%= data[i].weapon%></p>
+      <% } %>
 
     <link rel="stylesheet" href="assassins.css">
   </body>

@@ -4,9 +4,9 @@ let express = require('express');
 let router = express.Router();
 let knex = require('../knex');
 
-router.get('/codenames', function(req,res) {
+router.get('/codenames', function(req, res, next) {
   knex('codenames')
-    .orderBy('id')
+    .orderBy('assassins_id')
     .then((codenames) => {
       res.send(codenames);
     })
@@ -15,9 +15,9 @@ router.get('/codenames', function(req,res) {
     });
 });
 
-router.get('/codenames/:id', function(req, res) {
+router.get('/codenames/:assassins_id', function(req, res, next) {
   knex('codenames')
-    .where('id', req.params.id)
+    .where('assassins_id', req.params.assassins_id)
     .first()
     .then((codenames) => {
       if (!codenames) {
@@ -31,7 +31,7 @@ router.get('/codenames/:id', function(req, res) {
     });
 });
 
-router.post('/codenames', function(req,res) {
+router.post('/codenames', function(req, res, next) {
   knex('codenames')
         .insert({
             assassins_id: req.body.assassins_id,
@@ -45,9 +45,9 @@ router.post('/codenames', function(req,res) {
         });
 });
 
-router.patch('/codenames/:id', function(req,res) {
+router.patch('/codenames/:assassins_id', function(req, res, next) {
   knex('codenames')
-    .where('id', req.params.id)
+    .where('assassins_id', req.params.assassins_id)
     .first()
     .then((codenames) => {
       if (!codenames) {
@@ -58,7 +58,7 @@ router.patch('/codenames/:id', function(req,res) {
           assassins_id: req.body.assassins_id,
           code_name: req.body.code_name
         }, '*')
-        .where('id', req.params.id);
+        .where('assassins_id', req.params.assassins_id);
       })
       .then((codenames) => {
         res.send(codenames[0]);
@@ -68,11 +68,11 @@ router.patch('/codenames/:id', function(req,res) {
       });
     });
 
-    router.delete('/codenames/:id', (req, res, next) => {
+    router.delete('/codenames/:assassins_id', (req, res, next) => {
        let codename;
 
        knex('codenames')
-           .where('id', req.params.id)
+           .where('assassins_id', req.params.assassins_id)
            .first()
            .then((row) => {
                if (!row) {
@@ -83,10 +83,10 @@ router.patch('/codenames/:id', function(req,res) {
 
                return knex('codenames')
                    .del()
-                   .where('id', req.params.id);
+                   .where('assassins_id', req.params.assassins_id);
            })
            .then(() => {
-               delete codename.id;
+               delete codename.assassins_id;
                res.send(codename);
            })
            .catch((err) => {

@@ -4,7 +4,7 @@ let express = require('express');
 let router = express.Router();
 let knex = require('../knex');
 
-router.get('/contracts', function(req,res) {
+router.get('/contracts', function(req, res, next) {
   knex('contracts')
     .orderBy('id')
     .then((contracts) => {
@@ -15,7 +15,7 @@ router.get('/contracts', function(req,res) {
     });
 });
 
-router.get('/contracts/:id', function(req, res) {
+router.get('/contracts/:id', function(req, res, next) {
   knex('contracts')
     .where('id', req.params.id)
     .first()
@@ -31,7 +31,7 @@ router.get('/contracts/:id', function(req, res) {
     });
 });
 
-router.post('/contracts', function(req,res) {
+router.post('/contracts', function(req, res, next) {
   knex('contracts')
         .insert({
             target_id: req.body.target_id,
@@ -48,7 +48,7 @@ router.post('/contracts', function(req,res) {
         });
 });
 
-router.patch('/contracts/:id', function(req,res) {
+router.patch('/contracts/:id', function(req, res, next) {
   knex('contracts')
     .where('id', req.params.id)
     .first()

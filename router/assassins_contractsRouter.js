@@ -6,7 +6,7 @@ let knex = require('../knex');
 
 router.get('/assassins_contracts', function(req,res) {
   knex('assassins_contracts')
-    .orderBy('id')
+    .orderBy('assassins_id')
     .then((assassins_contracts) => {
       res.send(assassins_contracts);
     })
@@ -15,9 +15,9 @@ router.get('/assassins_contracts', function(req,res) {
     });
 });
 
-router.get('/assassins_contracts/:id', function(req, res) {
+router.get('/assassins_contracts/:assassins_id', function(req, res) {
   knex('assassins_contracts')
-    .where('id', req.params.id)
+    .where('assassins_id', req.params.assassins_id)
     .first()
     .then((assassins_contracts) => {
       if (!assassins_contracts) {
@@ -45,9 +45,9 @@ router.post('/assassins_contracts', function(req,res) {
         });
 });
 
-router.patch('/assassins_contracts/:id', function(req,res) {
+router.patch('/assassins_contracts/:assassins_id', function(req,res) {
   knex('assassins_contracts')
-    .where('id', req.params.id)
+    .where('assassins_id', req.params.assassins_id)
     .first()
     .then((assassins_contracts) => {
       if (!assassins_contracts) {
@@ -58,7 +58,7 @@ router.patch('/assassins_contracts/:id', function(req,res) {
           assassins_id: req.body.assassins_id,
           contract_id: req.body.contract_id
         }, '*')
-        .where('id', req.params.id);
+        .where('assassins_id', req.params.assassins_id);
       })
       .then((assassins_contracts) => {
         res.send(assassins_contracts[0]);
@@ -68,11 +68,11 @@ router.patch('/assassins_contracts/:id', function(req,res) {
       });
     });
 
-    router.delete('/assassins_contracts/:id', (req, res, next) => {
+    router.delete('/assassins_contracts/:assassins_id', (req, res, next) => {
        let assassincontract;
 
        knex('assassins_contracts')
-           .where('id', req.params.id)
+           .where('assassins_id', req.params.assassins_id)
            .first()
            .then((row) => {
                if (!row) {
@@ -83,10 +83,10 @@ router.patch('/assassins_contracts/:id', function(req,res) {
 
                return knex('assassins_contracts')
                    .del()
-                   .where('id', req.params.id);
+                   .where('assassins_id', req.params.assassins_id);
            })
            .then(() => {
-               delete assassincontract.id;
+               delete assassincontract.assassins_id;
                res.send(assassincontract);
            })
            .catch((err) => {

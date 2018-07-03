@@ -8,22 +8,22 @@
   <body>
 
     <div class="header">
-      <a href="#default" onclick="window.location.href='index.html'"class="logo">KillBase</a>
+      <a href="#default" onclick="window.location.href='../index.html'"class="logo">KillBase</a>
       <div class="header-right">
-        <a href="#assassins" onclick="window.location.href='assassins.html'">Assassins</a>
-        <a href="#contracts" onclick="window.location.href='contracts.html'">Contracts</a>
+        <a href="#assassins" onclick="window.location.href='../assassins.html'">Assassins</a>
+        <a href="#contracts" onclick="window.location.href='../contracts.html'">Contracts</a>
       </div>
     </div>
 
-    <img src="image/danger.jpg" width="100px" height="100px" alt="logo">
+    <img src="../image/danger.jpg" width="100px" height="100px" alt="logo">
 
     <h2>Active Assassins</h2>
 
         <% for (let i = 0; i < data.length; i++) { %>
-          <%= data[i].assassins_name%>
+          <p><%= data[i].assassins_name%> <%= data[i].weapon%></p>
           <% } %>
 
 
-    <link rel="stylesheet" href="assassins.css">
+    <link rel="stylesheet" href="../assassins.css">
   </body>
 </html>
