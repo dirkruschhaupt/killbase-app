@@ -1,11 +1,13 @@
 'use strict'
 
+// let fs = require('fs');
 let express = require('express');
-let app = express();
 let path = require('path');
-let bodyParser = require('body-parser');
+let app = express();
 let port = process.env.PORT || 8000;
-//let morgan = require('morgan');
+
+let morgan = require('morgan');
+let bodyParser = require('body-parser');
 
 let assassinsRouter = require('./router/assassinsRouter');
 let targetsRouter = require('./router/targetsRouter');
@@ -14,11 +16,16 @@ let clientsRouter = require('./router/clientsRouter');
 let codenamesRouter = require('./router/codenamesRouter');
 let assassins_contractsRouter = require('./router/assassins_contractsRouter');
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(express.static(path.join('public')));
+
 app.disable('x-powered-by');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(morgan('short'));
+app.use(morgan('short'));
 
 app.use(assassinsRouter);
 app.use(targetsRouter);

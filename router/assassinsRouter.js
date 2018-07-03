@@ -1,10 +1,12 @@
-let router = require('express').Router();
+let express = require('express');
+let router = express.Router();
+let knex = require('../knex');
 
 router.get('/assassins', function(req,res) {
   knex('assassins')
     .orderBy('id')
     .then((assassins) => {
-      res.send(assassins);
+      res.render('assassins', {data: assassins});
     })
     .catch((err) => {
       next(err);
@@ -70,4 +72,4 @@ router.delete('/assassins/:id', function(req,res) {
   res.status(200).send(responceText);
 });
 
-module.export = router;
+module.exports = router;
