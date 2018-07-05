@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Arial;
-  background-image: url("image/plate1.jpg");
+  background-image: url("../image/plate1.jpg");
   background-color: darkgray;
   background-size: cover;
   background-repeat: no-repeat, repeat;
