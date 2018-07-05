@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>KillBase: Assassins</title>
+    <title>KillBase: Contracts</title>
     <script defer src="index.js"></script>
   </head>
   <body>
@@ -17,17 +17,29 @@
 
     <img src="../image/danger.jpg" width="100px" height="100px" alt="logo">
 
-    <h2>Active Assassins</h2>
+    <h2>Available Contracts</h2>
 
         <% for (let i = 0; i < data.length; i++) { %>
-            <p>Name: <%= data[i].assassins_name%></p>
-            <p>Weapon: <%= data[i].weapon%></p>
-            <p>Age: <%= data[i].age%></p>
-            <p>Price: <%= data[i].price%></p>
-            <p>Rating: <%= data[i].rating%></p>
-            <p>Kills: <%= data[i].kills%></p>
-            <hr>
+          <table>
+            <thead>
+              <tr>
+            <th>Client: <%= data[i].client_id%></th>
+            <th>Weapon: <%= data[i].weapon%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Age: <%= data[i].age%></td>
+            <td>Price: <%= data[i].price%></td>
+            <td>Rating: <%= data[i].rating%></td>
+            <td>Kills: <%= data[i].kills%></td>
+          </tr>
+        </tbody>
+      </table>
+          <hr>
           <% } %>
+
+
 
 
     <link rel="stylesheet" href="../assassins.css">

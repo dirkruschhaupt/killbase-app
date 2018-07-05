@@ -8,7 +8,8 @@ router.get('/contracts', function(req, res, next) {
   knex('contracts')
     .orderBy('id')
     .then((contracts) => {
-      res.send(contracts);
+      res.render('contracts', {data: contracts});
+      //res.send(contracts);
     })
     .catch((err) => {
       next(err);

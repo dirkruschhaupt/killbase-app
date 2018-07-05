@@ -10,6 +10,7 @@ body {
   background-color: darkgray;
   background-size: cover;
   background-repeat: no-repeat, repeat;
+  background-blend-mode: soft-light;
 }
 
 h1 {
